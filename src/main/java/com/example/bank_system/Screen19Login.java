@@ -8,8 +8,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Screen19Login extends Application {
+    //Screen 19
     protected static String ID = "";
     protected static String password = "";
+    //Screen 1
+    protected static String corpID = "";
+    protected static String longName =  "";
+    protected static String shortName = "";
+    protected static int resAssets = 0;
 
     @Override
     public void start(Stage stage) throws IOException {

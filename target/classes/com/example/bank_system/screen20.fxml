@@ -13,52 +13,52 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="viewStatusButton" layoutX="234.0" layoutY="85.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="View Status">
+      <Button fx:id="viewStatusButton" layoutX="234.0" layoutY="85.0" mnemonicParsing="false" onAction="#goToViewStatus" prefHeight="25.0" prefWidth="130.0" text="View Status">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="createCorporationButton" layoutX="141.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Create Corporation">
+      <Button fx:id="createCorporationButton" layoutX="141.0" layoutY="127.0" mnemonicParsing="false" onAction="#goToCreateCorporation" prefHeight="25.0" prefWidth="130.0" text="Create Corporation">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="createFeeButton" layoutX="330.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Create Fee">
+      <Button fx:id="createFeeButton" layoutX="330.0" layoutY="127.0" mnemonicParsing="false" onAction="#goToCreateFee" prefHeight="25.0" prefWidth="130.0" text="Create Fee">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="manageUsersButton" layoutX="141.0" layoutY="177.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Manage Users">
+      <Button fx:id="manageUsersButton" layoutX="141.0" layoutY="177.0" mnemonicParsing="false" onAction="#goToManageUsers" prefHeight="25.0" prefWidth="130.0" text="Manage Users">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="manageOverdraftButton" layoutX="330.0" layoutY="177.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Manage Overdraft">
+      <Button fx:id="manageOverdraftButton" layoutX="330.0" layoutY="177.0" mnemonicParsing="false" onAction="#goToManageOverdraft" prefHeight="25.0" prefWidth="130.0" text="Manage Overdraft">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="hireWorkerButton" layoutX="141.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Hire Worker">
+      <Button fx:id="hireWorkerButton" layoutX="141.0" layoutY="225.0" mnemonicParsing="false" onAction="#goToHireWorker" prefHeight="25.0" prefWidth="130.0" text="Hire Worker">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="payEmployeesButton" layoutX="330.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Pay Employees">
+      <Button fx:id="payEmployeesButton" layoutX="330.0" layoutY="225.0" mnemonicParsing="false" onAction="#goToPayEmployees" prefHeight="25.0" prefWidth="130.0" text="Pay Employees">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="replaceManagerButton" layoutX="141.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Replace Manager">
+      <Button fx:id="replaceManagerButton" layoutX="141.0" layoutY="273.0" mnemonicParsing="false" onAction="#goToReplaceManager" prefHeight="25.0" prefWidth="130.0" text="Replace Manager">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="managerAccountsButton" layoutX="330.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Manage Accounts">
+      <Button fx:id="managerAccountsButton" layoutX="330.0" layoutY="273.0" mnemonicParsing="false" onAction="#goToManageAccounts" prefHeight="25.0" prefWidth="130.0" text="Manage Accounts">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="createBankButton" layoutX="234.0" layoutY="320.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Create Bank">
+      <Button fx:id="createBankButton" layoutX="234.0" layoutY="320.0" mnemonicParsing="false" onAction="#goToCreateBank" prefHeight="25.0" prefWidth="130.0" text="Create Bank">
          <font>
             <Font name="Arial" size="13.0" />
          </font>

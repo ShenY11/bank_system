@@ -8,30 +8,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Hashtable;
-import java.util.ResourceBundle;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Screen19Controller extends Screen19Login{
-    @FXML
-    private URL location;
-    @FXML
-    private ResourceBundle resources;
 
     @FXML
     private Button loginButton;
@@ -51,16 +37,6 @@ public class Screen19Controller extends Screen19Login{
         return passwordTextfield;
     }
 
-    @FXML
-    private Label infoLabel;
-
-    public Label getInfoLabel() {
-        return infoLabel;
-    }
-
-    //protected static String ID = "";
-
-    //protected static String password = "";
 
     private Stage stage;
     private Scene scene;
