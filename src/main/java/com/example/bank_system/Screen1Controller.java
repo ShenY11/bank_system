@@ -59,7 +59,7 @@ public class Screen1Controller extends Screen19Login{
 
     public void goToAdminMenu_cancel(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("screen1.fxml"));
+            root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -79,12 +79,23 @@ public class Screen1Controller extends Screen19Login{
             corpID = corpIDTextfield.getText();
             longName = longNameTextfield.getText();
             shortName = shortNameTextfield.getText();
+            boolean resProblem = false;
+            for (char i : resAssetsTextfield.getText().toCharArray()) {
+                if ((int)i > 57 || (int) i < 48) {
+                    resProblem = true;
+                    break;
+                }
+            }
+            if (corpID == "" || longName == "" || shortName == "" || resProblem) {
+                Alert alert = new Alert(Alert.AlertType.WARNING,
+                        "Please enter valid inputs");
+                alert.show();
+            }
             resAssets = Integer.valueOf(resAssetsTextfield.getText());
-
             Statement statement1 = connectionDB.createStatement();
-            System.out.println(String.format(createCorporation, corpID, shortName, longName, resAssets));
             ResultSet queryOutput = statement1.executeQuery(String.format(createCorporation, corpID, shortName, longName, resAssets));
             //TODO: input examination? alert?
+            //if invalid input, page will not return to admin menu.
             root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);

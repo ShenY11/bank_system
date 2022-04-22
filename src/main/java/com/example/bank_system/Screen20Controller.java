@@ -55,5 +55,14 @@ public class Screen20Controller {
 
 
     public void goToCreateBank(ActionEvent actionEvent) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("screen2.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

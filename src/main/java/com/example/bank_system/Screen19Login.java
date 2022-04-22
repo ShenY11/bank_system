@@ -12,10 +12,10 @@ public class Screen19Login extends Application {
     protected static String ID = "";
     protected static String password = "";
     //Screen 1
-    protected static String corpID = "";
+    protected static String corpID = ""; // Screen 2
     protected static String longName =  "";
     protected static String shortName = "";
-    protected static int resAssets = 0;
+    protected static int resAssets = 0; // Screen 2
 
     @Override
     public void start(Stage stage) throws IOException {
