@@ -1,40 +1,20 @@
 package com.example.bank_system;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 
-public class Screen20Controller {
+public class Screen21Controller {
     private Stage stage;
     private Scene scene;
     private Parent root;
-
-    public void goToViewStatus(ActionEvent actionEvent) {
-    }
-
-    public void goToCreateCorporation(ActionEvent actionEvent) {
+    public void createEmployee(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("screen1.fxml"));
-            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void goToCreateFee(ActionEvent actionEvent) {
-    }
-
-
-    public void goToManageUsers(ActionEvent actionEvent) {
-        try {
-            root = FXMLLoader.load(getClass().getResource("screen21.fxml"));
+            root = FXMLLoader.load(getClass().getResource("screen3.fxml"));
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -44,28 +24,27 @@ public class Screen20Controller {
         }
     }
 
-
-    public void goToManageOverdraft(ActionEvent actionEvent) {
-    }
-
-    public void goToHireWorker(ActionEvent actionEvent) {
-    }
-
-
-    public void goToPayEmployees(ActionEvent actionEvent) {
-    }
-
-    public void goToReplaceManager(ActionEvent actionEvent) {
-    }
-
-
-    public void goToManageAccounts(ActionEvent actionEvent) {
-    }
-
-
-    public void goToCreateBank(ActionEvent actionEvent) {
+    public void createCustomer(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("screen2.fxml"));
+            root = FXMLLoader.load(getClass().getResource("screen4.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void stopEmployee(ActionEvent actionEvent) {
+    }
+
+    public void stopCustomer(ActionEvent actionEvent) {
+    }
+
+    public void goToAdminMenu(ActionEvent actionEvent) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
