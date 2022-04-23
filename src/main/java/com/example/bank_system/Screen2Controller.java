@@ -147,7 +147,6 @@ public class Screen2Controller extends Screen19Login implements Initializable {
 
             Statement statement1 = connectionDB.createStatement();
             String query = String.format(createBank, bankID, bankName, street, city, state, zip, resAssets, corpID, manageId, employeeName);
-            System.out.println(query);
             ResultSet queryOutput = statement1.executeQuery(query);
 
             root = FXMLLoader.load(getClass().getResource("screen20.fxml"));

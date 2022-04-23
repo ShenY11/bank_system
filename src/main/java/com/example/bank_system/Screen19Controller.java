@@ -36,7 +36,6 @@ public class Screen19Controller extends Screen19Login{
         return passwordTextfield;
     }
 
-
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -75,20 +74,19 @@ public class Screen19Controller extends Screen19Login{
                     break;
                 }
             }
-            while (employeeQueryOutput.next()) {
-                String queryIDNow = employeeQueryOutput.getString("perID");
-                String queryPWDNow = employeeQueryOutput.getString("pwd");
-                if (ID.compareTo(queryIDNow) == 0 && password.compareTo(queryPWDNow) == 0) {
-                    matchEmployee = true;
-                    break;
-                }
-            }
-
             while (customerQueryOutput.next()) {
                 String queryIDNow = customerQueryOutput.getString("perID");
                 String queryPWDNow = customerQueryOutput.getString("pwd");
                 if (ID.compareTo(queryIDNow) == 0 && password.compareTo(queryPWDNow) == 0) {
                     matchCustomer = true;
+                    break;
+                }
+            }
+            while (employeeQueryOutput.next()) {
+                String queryIDNow = employeeQueryOutput.getString("perID");
+                String queryPWDNow = employeeQueryOutput.getString("pwd");
+                if (ID.compareTo(queryIDNow) == 0 && password.compareTo(queryPWDNow) == 0) {
+                    matchEmployee = true;
                     break;
                 }
             }

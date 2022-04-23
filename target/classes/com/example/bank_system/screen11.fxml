@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="648.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen11Controller">
+   <children>
+      <Label layoutX="256.0" layoutY="22.0" text="Deposit">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="77.0" text="Amount:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="amountTextField" layoutX="176.0" layoutY="71.0" onAction="#getAmountTextField" promptText="Amount:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></TextField>
+      <Label layoutX="134.0" layoutY="120.0" text="To:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="221.0" layoutY="260.0" mnemonicParsing="false" onAction="#backToCustomerScreen" text="Back">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="depositButton" layoutX="319.0" layoutY="260.0" mnemonicParsing="false" onAction="#deposit" text="Deposit">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <ComboBox layoutX="181.0" layoutY="114.0" prefWidth="150.0" promptText="Bank" />
+      <ComboBox layoutX="363.0" layoutY="114.0" prefWidth="150.0" promptText="Account" />
+      <AnchorPane layoutX="1.0" layoutY="260.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="246.0" layoutY="77.0" text="Withdraw">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="102.0" layoutY="152.0" text="To:">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="145.0" layoutY="139.0" prefWidth="150.0" promptText="Bank" />
+            <ComboBox layoutX="328.0" layoutY="139.0" prefWidth="150.0" promptText="Account" />
+            <Label layoutX="75.0" layoutY="185.0" text="Amount:">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="145.0" layoutY="180.0">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+            <Button layoutX="231.0" layoutY="332.0" mnemonicParsing="false" text="Back">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="328.0" layoutY="332.0" mnemonicParsing="false" text="Withdraw">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
