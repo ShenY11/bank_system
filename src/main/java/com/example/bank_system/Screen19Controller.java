@@ -50,7 +50,7 @@ public class Screen19Controller extends Screen19Login{
         Connection connectionDB = connectionNow.getConnection();
 
         String adminQuery = "select person.perID, pwd from person join system_admin on person.perID = system_admin.perID;";
-        String employeeQuery = "select person.perID, pwd from person join employee on person.perID = bank.manager;";
+        String employeeQuery = "select person.perID, pwd from person join bank on person.perID = bank.manager;";
         String customerQuery = "select person.perID, pwd from person join customer on person.perID = customer.perID;";
 
         try {
@@ -65,8 +65,10 @@ public class Screen19Controller extends Screen19Login{
             boolean matchAdmin = false;
             boolean matchEmployee = false;
             boolean matchCustomer = false;
+
             while (adminQueryOutput.next()) {
                 String queryIDNow = adminQueryOutput.getString("perID");
+
                 String queryPWDNow = adminQueryOutput.getString("pwd");
                 if (ID.compareTo(queryIDNow) == 0 && password.compareTo(queryPWDNow) == 0) {
                     matchAdmin = true;
@@ -98,14 +100,14 @@ public class Screen19Controller extends Screen19Login{
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.WARNING,
-                        "Please enter valid ID and password");
-                alert.show();
-            }
-
-            if (matchEmployee) {
-                root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
+            } else if (matchEmployee) {
+                root = FXMLLoader.load(getClass().getResource("screen23.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else if (matchCustomer) {
+                root = FXMLLoader.load(getClass().getResource("screen24.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
