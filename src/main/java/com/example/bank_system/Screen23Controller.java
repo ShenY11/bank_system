@@ -58,7 +58,7 @@ public class Screen23Controller {
         Connection connectionDB = connectionNow.getConnection();
 
 
-        root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
+        root = FXMLLoader.load(getClass().getResource("screen6.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

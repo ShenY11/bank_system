@@ -64,8 +64,10 @@ public class Screen19Controller extends Screen19Login{
             boolean matchAdmin = false;
             boolean matchEmployee = false;
             boolean matchCustomer = false;
+
             while (adminQueryOutput.next()) {
                 String queryIDNow = adminQueryOutput.getString("perID");
+
                 String queryPWDNow = adminQueryOutput.getString("pwd");
                 if (ID.compareTo(queryIDNow) == 0 && password.compareTo(queryPWDNow) == 0) {
                     matchAdmin = true;
