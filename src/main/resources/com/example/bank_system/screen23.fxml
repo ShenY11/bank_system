@@ -5,10 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ec6a61528f5682004908a30dcd72009f82230c8c
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen23Controller">
    <children>
       <Label layoutX="228.0" layoutY="39.0" text="Manager Menu">
