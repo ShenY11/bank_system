@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen12">
+   <children>
+      <Label layoutX="252.0" layoutY="24.0" text="Transfer">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="83.0" layoutY="76.0" text="From:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="143.0" layoutY="71.0" prefWidth="150.0" promptText="Bank" />
+      <ComboBox layoutX="324.0" layoutY="71.0" prefWidth="150.0" promptText="Account" />
+      <Label layoutX="75.0" layoutY="122.0" text="Amount:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField layoutX="143.0" layoutY="116.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="102.0" layoutY="164.0" text="To:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="143.0" layoutY="158.0" prefWidth="150.0" promptText="Bank" />
+      <ComboBox layoutX="324.0" layoutY="158.0" prefWidth="150.0" promptText="Account" />
+      <Button layoutX="225.0" layoutY="314.0" mnemonicParsing="false" text="Back">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="322.0" layoutY="314.0" mnemonicParsing="false" text="Confirm">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

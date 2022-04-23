@@ -73,6 +73,14 @@ public class Screen19Controller extends Screen19Login{
                     break;
                 }
             }
+            while (customerQueryOutput.next()) {
+                String queryIDNow = customerQueryOutput.getString("perID");
+                String queryPWDNow = customerQueryOutput.getString("pwd");
+                if (ID.compareTo(queryIDNow) == 0 && password.compareTo(queryPWDNow) == 0) {
+                    matchCustomer = true;
+                    break;
+                }
+            }
             while (employeeQueryOutput.next()) {
                 String queryIDNow = employeeQueryOutput.getString("perID");
                 String queryPWDNow = employeeQueryOutput.getString("pwd");
@@ -82,18 +90,21 @@ public class Screen19Controller extends Screen19Login{
                 }
             }
 
-            while (customerQueryOutput.next()) {
-                String queryIDNow = customerQueryOutput.getString("perID");
-                String queryPWDNow = customerQueryOutput.getString("pwd");
-                if (ID.compareTo(queryIDNow) == 0 && password.compareTo(queryPWDNow) == 0) {
-                    matchCustomer = true;
-                    break;
-                }
-            }
-
             //TODO: what if employee and customer at the same time, which panel shows up after log in
             if (matchAdmin) {
                 root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else if (matchEmployee) {
+                root = FXMLLoader.load(getClass().getResource("screen23.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else if (matchCustomer) {
+                root = FXMLLoader.load(getClass().getResource("screen24.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
