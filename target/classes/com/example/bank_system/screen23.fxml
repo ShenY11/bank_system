@@ -6,15 +6,10 @@
 <?import javafx.scene.text.Font?>
 
 <<<<<<< HEAD
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen23Controller">
 =======
 
-<<<<<<< HEAD
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen23">
-=======
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen23Controller">
->>>>>>> ebdd7a7fe0564f45a8f0e9666ccc7beb0ce44327
 >>>>>>> ec6a61528f5682004908a30dcd72009f82230c8c
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen23Controller">
    <children>
       <Label layoutX="228.0" layoutY="39.0" text="Manager Menu">
          <font>
@@ -26,11 +21,7 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-<<<<<<< HEAD
       <Button fx:id="Hire_Worker" layoutX="265.0" layoutY="188.0" mnemonicParsing="false" onAction="#HireWorker" text="Hire Worker">
-=======
-      <Button fx:id="HireWorker" layoutX="265.0" layoutY="188.0" mnemonicParsing="false" text="Hire Worker">
->>>>>>> ec6a61528f5682004908a30dcd72009f82230c8c
          <font>
             <Font name="Arial" size="14.0" />
          </font>
