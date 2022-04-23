@@ -5,11 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen24Controller">
-=======
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen24Controller">
->>>>>>> ebdd7a7fe0564f45a8f0e9666ccc7beb0ce44327
    <children>
       <Label layoutX="209.0" layoutY="28.0" text="Customer Menu">
          <font>

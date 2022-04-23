@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen12Controller">
    <children>
       <Label layoutX="252.0" layoutY="24.0" text="Transfer">
@@ -20,14 +19,14 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <ComboBox layoutX="143.0" layoutY="71.0" prefWidth="150.0" promptText="Bank" />
-      <ComboBox layoutX="324.0" layoutY="71.0" prefWidth="150.0" promptText="Account" />
+      <ComboBox fx:id="bankFromCombo" layoutX="143.0" layoutY="71.0" onAction="#selectBankFrom" prefWidth="150.0" promptText="Bank" />
+      <ComboBox fx:id="accountFromCombo" layoutX="324.0" layoutY="71.0" onAction="#selectAccountFrom" prefWidth="150.0" promptText="Account" />
       <Label layoutX="75.0" layoutY="122.0" text="Amount:">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="143.0" layoutY="116.0">
+      <TextField fx:id="amountTextField" layoutX="143.0" layoutY="116.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -37,8 +36,8 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <ComboBox layoutX="143.0" layoutY="158.0" prefWidth="150.0" promptText="Bank" />
-      <ComboBox layoutX="324.0" layoutY="158.0" prefWidth="150.0" promptText="Account" />
+      <ComboBox fx:id="bankToCombo" layoutX="143.0" layoutY="158.0" onAction="#selectBankTo" prefWidth="150.0" promptText="Bank" />
+      <ComboBox fx:id="accountToCombo" layoutX="324.0" layoutY="158.0" onAction="#selectAccountTo" prefWidth="150.0" promptText="Account" />
       <Button layoutX="225.0" layoutY="314.0" mnemonicParsing="false" text="Back">
          <font>
             <Font name="Arial" size="14.0" />
