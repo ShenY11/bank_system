@@ -37,9 +37,27 @@ public class Screen21Controller {
     }
 
     public void stopEmployee(ActionEvent actionEvent) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("screen5a.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void stopCustomer(ActionEvent actionEvent) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("screen5b.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void goToAdminMenu(ActionEvent actionEvent) {

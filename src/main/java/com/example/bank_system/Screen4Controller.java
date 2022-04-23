@@ -43,7 +43,7 @@ public class Screen4Controller extends Screen19Login implements Initializable {
 
     public void goToManageUsers_cancel(ActionEvent actionEvent) {
         try {
-            root = FXMLLoader.load(getClass().getResource("screen1.fxml"));
+            root = FXMLLoader.load(getClass().getResource("screen21.fxml"));
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -56,11 +56,46 @@ public class Screen4Controller extends Screen19Login implements Initializable {
     public void goToManageUsers_create(ActionEvent actionEvent) {
         DatabaseConnection connectionNow = new DatabaseConnection();
         Connection connectionDB = connectionNow.getConnection();
-        String createCustomer = ";";
+        String createCustomer = "call start_customer_role('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');";
+        //perID, taxID, fN, lN, bDate, street, city, state, zip, dtJoined, cus_password
         try {
-            //TODO
+            String perID = String.valueOf(selectUserCombo.getValue());
+            String taxID = "";
+            String fN = "";
+            String lN = "";
+            String bDate = "";
+            String street = "";
+            String city = "";
+            String state = "";
+            String zip = "";
+            String dtJoined = "";
+            String cus_password = "";
 
-            root = FXMLLoader.load(getClass().getResource("screen1.fxml"));
+            String getInfo = "select * from bank_user where bank_user.perID = '%s';";
+            Statement statement1 = connectionDB.createStatement();
+            ResultSet queryOutput1 = statement1.executeQuery(String.format(getInfo, perID));
+            queryOutput1.next();
+            taxID = queryOutput1.getString("taxID");
+            fN = queryOutput1.getString("firstName");
+            lN = queryOutput1.getString("lastName");
+            bDate = queryOutput1.getString("birthdate");
+            street = queryOutput1.getString("street");
+            city = queryOutput1.getString("city");
+            state = queryOutput1.getString("state");
+            zip = queryOutput1.getString("zip");
+            dtJoined = queryOutput1.getString("dtJoined");
+            String getInfo2 = "select pwd from person where person.perID = perID;";
+            Statement statement2 = connectionDB.createStatement();
+            ResultSet queryOutput2 = statement2.executeQuery(getInfo2);
+            queryOutput2.next();
+            cus_password = queryOutput2.getString("pwd");
+
+            String query = String.format(createCustomer, perID, taxID, fN, lN, bDate, street, city, state, zip,
+                    dtJoined, cus_password);
+            Statement statement3 = connectionDB.createStatement();
+            ResultSet queryOutput3 = statement3.executeQuery(query);
+
+            root = FXMLLoader.load(getClass().getResource("screen21.fxml"));
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
