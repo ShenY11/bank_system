@@ -23,8 +23,14 @@
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="idTextfield" layoutX="207.0" layoutY="157.0" onAction="#getIdTextfield" prefHeight="26.0" prefWidth="187.0" promptText="ID:" />
-      <TextField fx:id="passwordTextfield" layoutX="207.0" layoutY="235.0" onAction="#getPasswordTextfield" prefHeight="26.0" prefWidth="187.0" promptText="Password:" />
+      <TextField fx:id="idTextfield" layoutX="207.0" layoutY="157.0" onAction="#getIdTextfield" prefHeight="26.0" prefWidth="187.0" promptText="ID:">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></TextField>
+      <TextField fx:id="passwordTextfield" layoutX="207.0" layoutY="235.0" onAction="#getPasswordTextfield" prefHeight="26.0" prefWidth="187.0" promptText="Password:">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></TextField>
       <Button fx:id="loginButton" layoutX="277.0" layoutY="292.0" mnemonicParsing="false" onAction="#submitLogin" text="Login">
          <font>
             <Font name="Arial" size="14.0" />

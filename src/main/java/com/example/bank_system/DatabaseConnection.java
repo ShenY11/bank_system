@@ -11,6 +11,7 @@ public class DatabaseConnection {
         String databsePassword = "password";
         //String databsePassword = "84703636Lmq";
         //String databsePassword = "WangQian-112";
+
         String url = "jdbc:mysql://localhost/" + databseName;
 
         try {
