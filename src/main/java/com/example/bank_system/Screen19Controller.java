@@ -50,7 +50,7 @@ public class Screen19Controller extends Screen19Login{
         Connection connectionDB = connectionNow.getConnection();
 
         String adminQuery = "select person.perID, pwd from person join system_admin on person.perID = system_admin.perID;";
-        String employeeQuery = "select person.perID, pwd from person join employee on person.perID = bank.manager;";
+        String employeeQuery = "select person.perID, pwd from person join bank on person.perID = bank.manager;";
         String customerQuery = "select person.perID, pwd from person join customer on person.perID = customer.perID;";
 
         try {

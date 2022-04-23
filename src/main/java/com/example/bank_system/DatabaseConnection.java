@@ -9,11 +9,6 @@ public class DatabaseConnection {
         String databseName = "bank_management";
         String databseUser = "root";
         String databsePassword = "password";
-<<<<<<< HEAD
-        //String databsePassword = "84703636Lmq";
-=======
-        //String databsePassword = "WangQian-112";
->>>>>>> f2f3f980ddd9b360fb848a82b0c7e14860c6265e
         String url = "jdbc:mysql://localhost/" + databseName;
 
         try {
