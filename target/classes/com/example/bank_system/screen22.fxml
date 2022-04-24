@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen22Controller">
    <children>
       <Label layoutX="240.0" layoutY="23.0" text="View Stats">
@@ -36,6 +35,11 @@
          </font>
       </Button>
       <Button fx:id="employeeStats" layoutX="218.0" layoutY="282.0" mnemonicParsing="false" onAction="#displayEmployeeStats" text="Display Employee Stats">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="backBtn" layoutX="35.0" layoutY="351.0" mnemonicParsing="false" onAction="#backToAdminMenu" text="Back">
          <font>
             <Font name="Arial" size="14.0" />
          </font>

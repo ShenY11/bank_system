@@ -41,6 +41,19 @@ public class Screen22Controller {
     public void displayCustomerStats(ActionEvent actionEvent) {
     }
 
-    public void displayEmployeeStats(ActionEvent actionEvent) {
+    public void displayEmployeeStats(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("screen18.fxml"));
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void backToAdminMenu(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
