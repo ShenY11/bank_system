@@ -22,7 +22,12 @@ public class Screen22Controller {
         stage.show();
     }
 
-    public void displayCorporationStats(ActionEvent actionEvent) {
+    public void displayCorporationStats(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("screen16.fxml"));
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void displayBankStats(ActionEvent actionEvent) throws IOException {
