@@ -10,6 +10,9 @@ import java.io.IOException;
 public class Screen19Login extends Application {
     //Screen 19
     protected static String ID = "";
+    public String getID() {
+        return ID;
+    }
     protected static String password = "";
     //Screen 1
     protected static String corpID = ""; // Screen 2
