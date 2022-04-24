@@ -12,7 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -23,8 +22,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-
-public class Screen6Controller extends Screen19Login implements Initializable{
+public class Screen7Controller extends Screen19Login implements Initializable {
     @FXML
     private Button back;
 
@@ -41,35 +39,41 @@ public class Screen6Controller extends Screen19Login implements Initializable{
 
     @FXML
     private ComboBox bank;
+
     public ComboBox getBank() {
         return bank;
     }
 
     @FXML
     private ComboBox employee;
+
     public ComboBox getEmployee() {
         return employee;
     }
 
     @FXML
     private TextField newsalary;
-    public TextField getNewsalary() { return newsalary; }
+
+    public TextField getNewsalary() {
+        return newsalary;
+    }
 
     private int salary;
-    private String bankID ;
-    private String employeeName ;
+    private String bankID;
+    private String employeeName;
 
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+
     public void bank(ActionEvent actionEvent) {
         bankID = String.valueOf(bank.getValue());
 
     }
 
     public void employee(ActionEvent actionEvent) {
-       employeeName = String.valueOf(employee.getValue());
+        employeeName = String.valueOf(employee.getValue());
     }
 
     public void salary(ActionEvent actionEvent) {
@@ -82,14 +86,13 @@ public class Screen6Controller extends Screen19Login implements Initializable{
             alert.show();
 
         }
-
     }
 
 
     public void back(ActionEvent actionEvent) throws IOException {
-        System.out.println("before:" +previous);
+
         root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
-        previous = 6;
+        previous = 7;
         System.out.println("after:" +previous);
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -99,29 +102,27 @@ public class Screen6Controller extends Screen19Login implements Initializable{
     }
 
     public void confirm(ActionEvent actionEvent) {
-
         try {
             String salarytext = newsalary.getText();
             salary = Integer.parseInt(salarytext);
             System.out.println(salary);
+
         } catch (RuntimeException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please set the salary for the employee");
             alert.show();
             return;
-
         }
-        if (bankID == null || employeeName == null) {
 
-            Alert alert = new Alert(Alert.AlertType.WARNING, "please choose both the bank and the employee");
+        if (employeeName == null || bankID == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose both a bank and a employee");
             alert.show();
-            return;
-
         }
 
 
         DatabaseConnection connectionNow = new DatabaseConnection();
         Connection connectionDB = connectionNow.getConnection();
-        String hire_worker = "call hire_worker ('%s', '%s', %d);";
+        String hire_worker = "call replace_manager('%s', '%s', %d);";
+
 
 
         try {
@@ -129,12 +130,12 @@ public class Screen6Controller extends Screen19Login implements Initializable{
             //TODO: input examination? alert?
             //if invalid input, page will not return to admin menu.
             Statement statement1 = connectionDB.createStatement();
-            String query = String.format(hire_worker,employeeName,bankID,salary);
+            String query = String.format(hire_worker, employeeName, bankID, salary);
             System.out.println(query);
             ResultSet queryOutput = statement1.executeQuery(query);
 
             root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
-            previous = 6;
+            previous = 7;
             System.out.println("after:" +previous);
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -158,7 +159,7 @@ public class Screen6Controller extends Screen19Login implements Initializable{
         DatabaseConnection connectionNow = new DatabaseConnection();
         Connection connectionDB = connectionNow.getConnection();
         String getBankID = "select bankID from bank;";
-        String getEmployeeName = "select perID from employee where perID not in (select perID from employee join bank on employee.perID = bank.manager);";
+        String getEmployeeName = "select perID from employee where perID not in (SELECT perID FROM workFor) and perID not in (select manager from bank);";
         try {
             Statement statement1 = connectionDB.createStatement();
             //Statement statement2 = connectionDB.createStatement();
@@ -183,6 +184,5 @@ public class Screen6Controller extends Screen19Login implements Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }

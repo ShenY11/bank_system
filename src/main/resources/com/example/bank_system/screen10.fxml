@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen10Controller">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="back" layoutX="129.0" layoutY="327.0" mnemonicParsing="false" onAction="#back" text="Back">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="confirm" layoutX="434.0" layoutY="327.0" mnemonicParsing="false" onAction="#confirm" text="Confirm">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="149.0" layoutY="52.0" text="Manage Overdraft Policies">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="avaiableCheckingAccounts" layoutX="225.0" layoutY="128.0" onAction="#availableCheckingAccounts" prefWidth="150.0" promptText="Available Checking Accounts" />
+            <ComboBox fx:id="AvailableSavingsAccounts" layoutX="225.0" layoutY="250.0" onAction="#AvailableSavingsAccounts" prefWidth="150.0" promptText="Available Savings Accounts" />
+            <CheckBox fx:id="overDraftPolicy" layoutX="225.0" layoutY="232.0" mnemonicParsing="false" onAction="#addingOverDraftPolicy" text="Adding Overdraft Policy?">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

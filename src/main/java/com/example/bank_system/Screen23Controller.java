@@ -16,7 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
-public class Screen23Controller {
+public class Screen23Controller extends Screen19Login{
 
     @FXML
     private Button Pay_Employee;
@@ -43,7 +43,10 @@ public class Screen23Controller {
         Connection connectionDB = connectionNow.getConnection();
 
 
-        root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
+        System.out.println("before:" +previous);
+        root = FXMLLoader.load(getClass().getResource("screen13.fxml"));
+        previous = 23;
+        System.out.println("after:" +previous);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -56,9 +59,11 @@ public class Screen23Controller {
 
         DatabaseConnection connectionNow = new DatabaseConnection();
         Connection connectionDB = connectionNow.getConnection();
-
+        System.out.println("before:" +previous);
 
         root = FXMLLoader.load(getClass().getResource("screen6.fxml"));
+        previous = 23;
+        System.out.println("after:" +previous);
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
