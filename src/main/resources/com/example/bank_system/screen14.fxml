@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="Infinity" maxWidth="Infinity" prefHeight="428.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen14Controller">
+<children>
+    <TableView fx:id="tableView" prefHeight="428.0" prefWidth="674.0">
+        <columns>
+            <TableColumn fx:id="bankColumn" prefWidth="283.0" text="Bank" />
+            <TableColumn fx:id="accountIDColumn" prefWidth="152.0" text="Account ID" />
+            <TableColumn fx:id="accountBalanceColumn" prefWidth="121.0" text="Account Balance ($)" />
+            <TableColumn fx:id="numOwnersColumn" prefWidth="117.0" text="Number of Owners" />
+        </columns>
+    </TableView>
+</children>
+</AnchorPane>

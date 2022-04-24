@@ -13,6 +13,15 @@ public class Screen20Controller {
     private Parent root;
 
     public void goToViewStatus(ActionEvent actionEvent) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("screen22.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void goToCreateCorporation(ActionEvent actionEvent) {

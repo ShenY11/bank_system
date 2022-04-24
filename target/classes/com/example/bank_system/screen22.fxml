@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen22Controller">
+   <children>
+      <Label layoutX="240.0" layoutY="23.0" text="View Stats">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="accountStatsBtn" layoutX="226.0" layoutY="80.0" mnemonicParsing="false" onAction="#displayAccountStats" text="Display Account Stats">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="corporationStats" layoutX="211.0" layoutY="130.0" mnemonicParsing="false" onAction="#displayCorporationStats" text="Display Corporation Stats">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="bankStats" layoutX="232.0" layoutY="180.0" mnemonicParsing="false" onAction="#displayBankStats" text="Display Bank Stats">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="customerStats" layoutX="218.0" layoutY="229.0" mnemonicParsing="false" onAction="#displayCustomerStats" text="Display Customer Stats">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="employeeStats" layoutX="218.0" layoutY="282.0" mnemonicParsing="false" onAction="#displayEmployeeStats" text="Display Employee Stats">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
