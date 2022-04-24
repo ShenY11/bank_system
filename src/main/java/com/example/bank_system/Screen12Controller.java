@@ -145,6 +145,5 @@ public class Screen12Controller implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }
