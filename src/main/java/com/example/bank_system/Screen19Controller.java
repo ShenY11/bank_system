@@ -93,19 +93,27 @@ public class Screen19Controller extends Screen19Login{
 
             //TODO: what if employee and customer at the same time, which panel shows up after log in
             if (matchAdmin) {
+                System.out.println("before:" +previous);
                 root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
+                previous = 19;
+                System.out.println("after:" +previous);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
             } else if (matchEmployee) {
+                System.out.println("before:" +previous);
                 root = FXMLLoader.load(getClass().getResource("screen23.fxml"));
+                previous = 19;
+                System.out.println("after:" +previous);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
             } else if (matchCustomer) {
                 root = FXMLLoader.load(getClass().getResource("screen24.fxml"));
+                previous = 19;
+                System.out.println("after:" +previous);
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);

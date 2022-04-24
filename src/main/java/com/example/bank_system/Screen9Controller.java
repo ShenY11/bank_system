@@ -15,16 +15,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
-
-public class Screen6Controller extends Screen19Login implements Initializable{
+public class Screen9Controller extends Screen19Login implements Initializable{
     @FXML
     private Button back;
 
@@ -46,18 +45,18 @@ public class Screen6Controller extends Screen19Login implements Initializable{
     }
 
     @FXML
-    private ComboBox employee;
-    public ComboBox getEmployee() {
-        return employee;
+    private ComboBox account;
+    public ComboBox getAccount() {
+        return account;
     }
 
     @FXML
-    private TextField newsalary;
-    public TextField getNewsalary() { return newsalary; }
+    private TextField feetype;
+    public TextField getFeetype() { return feetype; }
 
-    private int salary;
+    private String feetext;
     private String bankID ;
-    private String employeeName ;
+    private String accountName;
 
 
     private Stage stage;
@@ -68,17 +67,17 @@ public class Screen6Controller extends Screen19Login implements Initializable{
 
     }
 
-    public void employee(ActionEvent actionEvent) {
-       employeeName = String.valueOf(employee.getValue());
+    public void account(ActionEvent actionEvent) {
+       accountName = String.valueOf(account.getValue());
     }
 
-    public void salary(ActionEvent actionEvent) {
+    public void feetype(ActionEvent actionEvent) {
         try {
-            String salarytext = newsalary.getText();
-            salary = Integer.parseInt(salarytext);
-            System.out.println(salary);
+            feetext = feetype.getText();
+
+            System.out.println(feetext);
         } catch (RuntimeException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter valid salary");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter valid fee type");
             alert.show();
 
         }
@@ -87,9 +86,9 @@ public class Screen6Controller extends Screen19Login implements Initializable{
 
 
     public void back(ActionEvent actionEvent) throws IOException {
-        System.out.println("before:" +previous);
+
         root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
-        previous = 6;
+        previous = 9;
         System.out.println("after:" +previous);
         stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -100,28 +99,38 @@ public class Screen6Controller extends Screen19Login implements Initializable{
 
     public void confirm(ActionEvent actionEvent) {
 
+
         try {
-            String salarytext = newsalary.getText();
-            salary = Integer.parseInt(salarytext);
-            System.out.println(salary);
+            feetext = feetype.getText();
+            //System.out.println(feetext);
+            if (feetext.isEmpty()) {
+                System.out.println(feetext);
+                Alert alert = new Alert(Alert.AlertType.WARNING, "please enter the fee type for the account");
+                alert.show();
+                return;
+
+            }
+            System.out.println(bankID+accountName);
+            if (bankID == null || accountName == null) {
+
+                Alert alert = new Alert(Alert.AlertType.WARNING, "please choose both the bank and the account");
+                alert.show();
+                return;
+
+            }
+
+
+
         } catch (RuntimeException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please set the salary for the employee");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please choose both bankID and accountID or enter valid fee type for the account");
             alert.show();
             return;
 
         }
-        if (bankID == null || employeeName == null) {
-
-            Alert alert = new Alert(Alert.AlertType.WARNING, "please choose both the bank and the employee");
-            alert.show();
-            return;
-
-        }
-
 
         DatabaseConnection connectionNow = new DatabaseConnection();
         Connection connectionDB = connectionNow.getConnection();
-        String hire_worker = "call hire_worker ('%s', '%s', %d);";
+        String new_fee = "call create_fee ('%s', '%s', '%s');";
 
 
         try {
@@ -129,25 +138,26 @@ public class Screen6Controller extends Screen19Login implements Initializable{
             //TODO: input examination? alert?
             //if invalid input, page will not return to admin menu.
             Statement statement1 = connectionDB.createStatement();
-            String query = String.format(hire_worker,employeeName,bankID,salary);
+            String query = String.format(new_fee,bankID,accountName,feetext);
             System.out.println(query);
             ResultSet queryOutput = statement1.executeQuery(query);
 
             root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
-            previous = 6;
+            previous = 9;
             System.out.println("after:" +previous);
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }catch (NullPointerException npe) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose both a bank and a employee");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose both a bank and a account");
             alert.show();
 
 
         } catch (Exception e) {
+            e.printStackTrace();
 
-            Alert alert = new Alert(Alert.AlertType.WARNING, "This employee has already worked for this bank.");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "This fee has already been created or the account doesn't exist");
             alert.show();
 
         }
@@ -158,27 +168,27 @@ public class Screen6Controller extends Screen19Login implements Initializable{
         DatabaseConnection connectionNow = new DatabaseConnection();
         Connection connectionDB = connectionNow.getConnection();
         String getBankID = "select bankID from bank;";
-        String getEmployeeName = "select perID from employee where perID not in (select perID from employee join bank on employee.perID = bank.manager);";
+        String getAccountName = "select accountID from bank_account;";
         try {
             Statement statement1 = connectionDB.createStatement();
             //Statement statement2 = connectionDB.createStatement();
             Statement statement3 = connectionDB.createStatement();
             ResultSet queryOutput1 = statement1.executeQuery(getBankID);
             //ResultSet queryOutput2 = statement2.executeQuery(getManagerName);
-            ResultSet queryOutput3 = statement3.executeQuery(getEmployeeName);
+            ResultSet queryOutput3 = statement3.executeQuery(getAccountName);
 
             ArrayList<String> bankIDlist = new ArrayList<>();
             //ArrayList<String> managerNameList = new ArrayList<>();
-            ArrayList<String> employeeNameList = new ArrayList<>();
+            ArrayList<String> accountNameList = new ArrayList<>();
             while (queryOutput1.next()) {
                 bankIDlist.add(queryOutput1.getString("bankID"));
             }
 
             while (queryOutput3.next()) {
-                employeeNameList.add(queryOutput3.getString("perID"));
+                accountNameList.add(queryOutput3.getString("accountID"));
             }
             bank.getItems().addAll(bankIDlist);
-            employee.getItems().addAll(employeeNameList);
+            account.getItems().addAll(accountNameList);
 
         } catch (SQLException e) {
             e.printStackTrace();
