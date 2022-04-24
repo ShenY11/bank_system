@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -8,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="Infinity" maxWidth="Infinity" prefHeight="428.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen14Controller">
 <children>
-    <TableView fx:id="tableView" prefHeight="428.0" prefWidth="674.0">
+    <TableView fx:id="tableView" layoutY="53.0" prefHeight="426.0" prefWidth="674.0">
         <columns>
             <TableColumn fx:id="bankColumn" prefWidth="283.0" text="Bank" />
             <TableColumn fx:id="accountIDColumn" prefWidth="152.0" text="Account ID" />
@@ -16,5 +17,15 @@
             <TableColumn fx:id="numOwnersColumn" prefWidth="117.0" text="Number of Owners" />
         </columns>
     </TableView>
+      <Label layoutX="214.0" layoutY="14.0" text="Display account stats">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="backBtn" layoutX="614.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToViewStats" text="Back">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
 </children>
 </AnchorPane>
