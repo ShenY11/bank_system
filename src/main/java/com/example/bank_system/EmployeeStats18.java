@@ -11,7 +11,7 @@ public class EmployeeStats18 {
     private String state;
     private String zip;
     private Integer numBanks;
-    private Integer bankAssets;
+    private Long bankAssets;
 
     public EmployeeStats18() {
 
@@ -19,7 +19,7 @@ public class EmployeeStats18 {
 
     public EmployeeStats18(String perID, String taxID, String name, String DOB, String dateJoined,
                            String street, String city, String state, String zip, Integer numBanks,
-                           Integer bankAssets) {
+                           Long bankAssets) {
         setPerID(perID);
         setTaxID(taxID);
         setName(name);
@@ -73,7 +73,7 @@ public class EmployeeStats18 {
         return numBanks;
     }
 
-    public Integer getBankAssets() {
+    public Long getBankAssets() {
         return bankAssets;
     }
 
@@ -117,7 +117,7 @@ public class EmployeeStats18 {
         this.numBanks = numBanks;
     }
 
-    public void setBankAssets(Integer bankAssets) {
+    public void setBankAssets(Long bankAssets) {
         this.bankAssets = bankAssets;
     }
 }

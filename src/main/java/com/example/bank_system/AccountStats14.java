@@ -3,14 +3,14 @@ package com.example.bank_system;
 public class AccountStats14 {
     private String bank;
     private String accountID;
-    private Integer acountBalance;
+    private Long acountBalance;
     private Integer numOwners;
 
     public AccountStats14() {
 
     }
 
-    public AccountStats14(String bank, String accountID, Integer acountBalance, Integer numOwners) {
+    public AccountStats14(String bank, String accountID, Long acountBalance, Integer numOwners) {
         setBank(bank);
         setAccountID(accountID);
         setAcountBalance(acountBalance);
@@ -25,7 +25,7 @@ public class AccountStats14 {
         return accountID;
     }
 
-    public Integer getAcountBalance() {
+    public Long getAcountBalance() {
         return acountBalance;
     }
 
@@ -41,7 +41,7 @@ public class AccountStats14 {
         this.accountID = accountID;
     }
 
-    public void setAcountBalance(Integer acountBalance) {
+    public void setAcountBalance(Long acountBalance) {
         this.acountBalance = acountBalance;
     }
 

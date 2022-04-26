@@ -5,15 +5,15 @@ public class CorporationStats16 {
     private String shortName;
     private String formalName;
     private Integer numBanks;
-    private Integer corporationAssets;
-    private Integer totalAssets;
+    private Long corporationAssets;
+    private Long totalAssets;
 
     public CorporationStats16() {
 
     }
 
     public CorporationStats16(String corporationID, String shortName, String formalName,
-                                   Integer numBanks, Integer corporationAssets, Integer totalAssets) {
+                                   Integer numBanks, Long corporationAssets, Long totalAssets) {
         setCorporationID(corporationID);
         setShortName(shortName);
         setFormalName(formalName);
@@ -38,11 +38,11 @@ public class CorporationStats16 {
         return numBanks;
     }
 
-    public Integer getCorporationAssets() {
+    public Long getCorporationAssets() {
         return corporationAssets;
     }
 
-    public Integer getTotalAssets() {
+    public Long getTotalAssets() {
         return totalAssets;
     }
 
@@ -62,11 +62,11 @@ public class CorporationStats16 {
         this.numBanks = numBanks;
     }
 
-    public void setCorporationAssets(Integer corporationAssets) {
+    public void setCorporationAssets(Long corporationAssets) {
         this.corporationAssets = corporationAssets;
     }
 
-    public void setTotalAssets(Integer totalAssets) {
+    public void setTotalAssets(Long totalAssets) {
         this.totalAssets = totalAssets;
     }
 }

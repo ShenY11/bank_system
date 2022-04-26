@@ -75,13 +75,13 @@ public class Screen18Controller implements Initializable {
                 String state = rs.getString("state");
                 String zip = rs.getString("zip");
                 Integer numBanks = null;
-                Integer bankAssets = null;
+                Long bankAssets = null;
                 try {
                     numBanks = Integer.parseInt(rs.getString("number_bank"));
-                    bankAssets = Integer.parseInt(rs.getString("bank_assets"));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                } catch (Exception e) {}
+                try {
+                    bankAssets = Long.parseLong(rs.getString("bank_assets"));
+                } catch (Exception e) {}
                 observableList.add(new EmployeeStats18(perID, taxID, name, DOB,
                         dateJoined, street, city, state, zip, numBanks, bankAssets));
             }

@@ -9,8 +9,8 @@ public class BankStats15 {
     private String state;
     private String zip;
     private Integer numAccounts;
-    private Integer bankAssets;
-    private Integer totalAssets;
+    private Long bankAssets;
+    private Long totalAssets;
 
     public BankStats15() {
 
@@ -18,7 +18,7 @@ public class BankStats15 {
 
     public BankStats15(String bankID, String corporationName, String bankName,
                        String street, String city, String state, String zip,
-                       Integer numAccounts,Integer bankAssets, Integer totalAssets) {
+                       Integer numAccounts,Long bankAssets, Long totalAssets) {
         setBankID(bankID);
         setCorporationName(corporationName);
         setBankName(bankName);
@@ -63,11 +63,11 @@ public class BankStats15 {
         return numAccounts;
     }
 
-    public Integer getBankAssets() {
+    public Long getBankAssets() {
         return bankAssets;
     }
 
-    public Integer getTotalAssets() {
+    public Long getTotalAssets() {
         return totalAssets;
     }
 
@@ -103,11 +103,11 @@ public class BankStats15 {
         this.numAccounts = numAccounts;
     }
 
-    public void setBankAssets(Integer bankAssets) {
+    public void setBankAssets(Long bankAssets) {
         this.bankAssets = bankAssets;
     }
 
-    public void setTotalAssets(Integer totalAssets) {
+    public void setTotalAssets(Long totalAssets) {
         this.totalAssets = totalAssets;
     }
 }

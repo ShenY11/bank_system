@@ -59,20 +59,26 @@ public class Screen16Controller implements Initializable {
                 String shortName = rs.getString("short_name");
                 String formalName = rs.getString("formal_name");
                 Integer numBanks = null;
-                Integer corporationAssets = null;
-                Integer totalAssets = null;
+                Long corporationAssets = null;
+                Long totalAssets = null;
+
                 try {
                     numBanks = Integer.parseInt(rs.getString("number_of_banks"));
-                    corporationAssets = Integer.parseInt(rs.getString("corporation_assets"));
-                    totalAssets = Integer.parseInt(rs.getString("total_assets"));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                } catch (Exception e) {}
+
+                try {
+                    corporationAssets = Long.parseLong(rs.getString("corporation_assets"));
+                } catch (Exception e) {}
+
+                try {
+                    totalAssets = Long.parseLong(rs.getString("total_assets"));
+                } catch (Exception e) {}
+
                 observableList.add(new CorporationStats16(corporationID, shortName, formalName, numBanks,
                         corporationAssets, totalAssets));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         corporationColumn.setCellValueFactory(new PropertyValueFactory<>("corporationID"));

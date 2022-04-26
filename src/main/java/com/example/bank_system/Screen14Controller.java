@@ -52,20 +52,18 @@ public class Screen14Controller implements Initializable {
             observableList = FXCollections.observableArrayList();
 
             while (rs.next()) {
-                //rs.getString("name_of_bank") == null ? "" :
                 String bank = rs.getString("name_of_bank");
-                //rs.getString("account_identifier") == null ? "" :
                 String accountID = rs.getString("account_identifier");
-                Integer balance = null;
+                Long balance = null;
                 Integer numOwners = null;
                 try {
-                    balance = Integer.parseInt(rs.getString("account_assets"));
+                    balance = Long.parseLong(rs.getString("account_assets"));
+                } catch (Exception e) {}
+
+                try {
                     numOwners = Integer.parseInt(rs.getString("number_of_owners"));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                } catch (Exception e) {}
                 observableList.add(new AccountStats14(bank, accountID, balance,numOwners));
-                System.out.println(bank + " " + accountID + " " + balance + " " + numOwners);
             }
         } catch (Exception e) {
             e.printStackTrace();

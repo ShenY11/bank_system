@@ -70,20 +70,25 @@ public class Screen15Controller implements Initializable {
                 String state = rs.getString("state");
                 String zip = rs.getString("zip");
                 Integer numAccounts = null;
-                Integer bankAssets = null;
-                Integer totalAssets = null;
+                Long bankAssets = null;
+                Long totalAssets = null;
+
                 try {
                     numAccounts = Integer.parseInt(rs.getString("number_of_account"));
-                    bankAssets = Integer.parseInt(rs.getString("bank_assets"));
-                    totalAssets = Integer.parseInt(rs.getString("total_assets"));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                } catch (Exception e) {}
+
+                try {
+                    bankAssets = Long.parseLong(rs.getString("bank_assets"));
+                } catch (Exception e) {}
+
+                try {
+                    totalAssets = Long.parseLong(rs.getString("total_assets"));
+                } catch (Exception e) {}
                 observableList.add(new BankStats15(bankID, corporationName, bankName, street, city, state, zip,
                         numAccounts, bankAssets, totalAssets));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         bankIDColumn.setCellValueFactory(new PropertyValueFactory<>("bankID"));
