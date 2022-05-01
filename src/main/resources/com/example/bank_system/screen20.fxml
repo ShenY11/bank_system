@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen20Controller">
    <children>
       <Label layoutX="228.0" layoutY="40.0" text="Admin Menu">
@@ -58,10 +57,14 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="createBankButton" layoutX="234.0" layoutY="320.0" mnemonicParsing="false" onAction="#goToCreateBank" prefHeight="25.0" prefWidth="130.0" text="Create Bank">
+      <Button fx:id="createBankButton" layoutX="234.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToCreateBank" prefHeight="25.0" prefWidth="130.0" text="Create Bank">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
+      <Button fx:id="logOutButton" layoutX="29.0" layoutY="41.0" mnemonicParsing="false" onAction="#logOut" text="Log Out">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

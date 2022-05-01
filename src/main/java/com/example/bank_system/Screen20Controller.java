@@ -13,6 +13,15 @@ public class Screen20Controller extends Screen19Login{
     private Parent root;
 
     public void goToViewStatus(ActionEvent actionEvent) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("screen22.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void goToCreateCorporation(ActionEvent actionEvent) {
@@ -133,6 +142,18 @@ public class Screen20Controller extends Screen19Login{
     public void goToCreateBank(ActionEvent actionEvent) {
         try {
             root = FXMLLoader.load(getClass().getResource("screen2.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void logOut(ActionEvent actionEvent) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("screen19.fxml"));
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen16Controller">
+   <children>
+      <TableView fx:id="tableView" layoutX="-1.0" layoutY="63.0" prefHeight="336.0" prefWidth="878.0">
+        <columns>
+          <TableColumn fx:id="corporationColumn" prefWidth="96.0" text="Corporation ID" />
+          <TableColumn fx:id="shortNameColumn" minWidth="8.0" prefWidth="140.0" text="Short Name" />
+            <TableColumn fx:id="formalNameColumn" prefWidth="282.0" text="Formal Name" />
+            <TableColumn fx:id="numBanksColumn" prefWidth="110.0" text="Number of Banks" />
+            <TableColumn fx:id="corporationAssetsColumn" prefWidth="151.0" text="Corporation Assets ($)" />
+            <TableColumn fx:id="totalAssetsColumn" prefWidth="98.0" text="Total Assets ($)" />
+        </columns>
+      </TableView>
+      <Label layoutX="295.0" layoutY="22.0" text="Display corporation stats">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="backBtn" layoutX="809.0" layoutY="22.0" mnemonicParsing="false" onAction="#backToViewStats" text="Back" />
+   </children>
+</AnchorPane>

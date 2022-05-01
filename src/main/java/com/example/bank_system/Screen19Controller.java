@@ -2,21 +2,26 @@ package com.example.bank_system;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
-public class Screen19Controller extends Screen19Login{
+public class Screen19Controller extends Screen19Login implements Initializable {
 
     @FXML
     private Button loginButton;
@@ -36,6 +41,13 @@ public class Screen19Controller extends Screen19Login{
         return passwordTextfield;
     }
 
+    @FXML
+    private ComboBox preferenceComboBox;
+
+    public ComboBox getPreferenceComboBox() {
+        return preferenceComboBox;
+    }
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -43,8 +55,10 @@ public class Screen19Controller extends Screen19Login{
     public void submitLogin(javafx.event.ActionEvent event) throws IOException {
         ID = idTextfield.getText() == null ? "" : idTextfield.getText();
         password = passwordTextfield.getText() == null ? "" : passwordTextfield.getText();
+        String pref = String.valueOf(preferenceComboBox.getValue());
         System.out.println(ID);
         System.out.println(password);
+        System.out.println(pref);
         DatabaseConnection connectionNow = new DatabaseConnection();
         Connection connectionDB = connectionNow.getConnection();
 
@@ -62,7 +76,7 @@ public class Screen19Controller extends Screen19Login{
 
             //Authorization check -- valid person?
             boolean matchAdmin = false;
-            boolean matchEmployee = false;
+            boolean matchManager = false;
             boolean matchCustomer = false;
 
             while (adminQueryOutput.next()) {
@@ -86,12 +100,11 @@ public class Screen19Controller extends Screen19Login{
                 String queryIDNow = employeeQueryOutput.getString("perID");
                 String queryPWDNow = employeeQueryOutput.getString("pwd");
                 if (ID.compareTo(queryIDNow) == 0 && password.compareTo(queryPWDNow) == 0) {
-                    matchEmployee = true;
+                    matchManager = true;
                     break;
                 }
             }
 
-            //TODO: what if employee and customer at the same time, which panel shows up after log in
             if (matchAdmin) {
                 System.out.println("before:" +previous);
                 root = FXMLLoader.load(getClass().getResource("screen20.fxml"));
@@ -101,7 +114,30 @@ public class Screen19Controller extends Screen19Login{
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } else if (matchEmployee) {
+            } else if (matchCustomer && matchManager) {
+                if (pref.compareTo("Customer") == 0) {
+                    root = FXMLLoader.load(getClass().getResource("screen24.fxml"));
+                    previous = 19;
+                    System.out.println("after:" +previous);
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                } else if (pref.compareTo("Manager") == 0) {
+                    System.out.println("before:" +previous);
+                    root = FXMLLoader.load(getClass().getResource("screen23.fxml"));
+                    previous = 19;
+                    System.out.println("after:" +previous);
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                } else { // invalid input for preferenceComboBox
+                    Alert alert = new Alert(Alert.AlertType.WARNING,
+                            "Please enter a valid preference for logging in");
+                    alert.show();
+                }
+            } else if (matchManager) {
                 System.out.println("before:" +previous);
                 root = FXMLLoader.load(getClass().getResource("screen23.fxml"));
                 previous = 19;
@@ -128,4 +164,11 @@ public class Screen19Controller extends Screen19Login{
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ArrayList<String> prefName = new ArrayList<>();
+        prefName.add("Customer");
+        prefName.add("Manager");
+        preferenceComboBox.getItems().addAll(prefName);
+    }
 }

@@ -5,28 +5,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen24Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen24Controller">
    <children>
-      <Label layoutX="209.0" layoutY="28.0" text="Customer Menu">
+      <Label layoutX="209.0" layoutY="38.0" text="Customer Menu">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="toManageAccountBtn" layoutX="232.0" layoutY="84.0" mnemonicParsing="false" onAction="#MangeAccount" text=" Manage Accounts">
+      <Button fx:id="toManageAccountBtn" layoutX="232.0" layoutY="94.0" mnemonicParsing="false" onAction="#MangeAccount" text=" Manage Accounts">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="toDepositBtn" layoutX="226.0" layoutY="137.0" mnemonicParsing="false" onAction="#goToDepositWithdrawal" text="Deposit / Withdrawal">
+      <Button fx:id="toDepositBtn" layoutX="226.0" layoutY="147.0" mnemonicParsing="false" onAction="#goToDepositWithdrawal" text="Deposit / Withdrawal">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button layoutX="237.0" layoutY="186.0" mnemonicParsing="false" onAction="#MangeOverDraft" text="Manage Overdraft">
+      <Button layoutX="237.0" layoutY="196.0" mnemonicParsing="false" onAction="#MangeOverDraft" text="Manage Overdraft">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="toTransferBtn" layoutX="252.0" layoutY="237.0" mnemonicParsing="false" onAction="#goToTransfer" text="Make Transfer" />
+      <Button fx:id="toTransferBtn" layoutX="245.0" layoutY="247.0" mnemonicParsing="false" onAction="#goToTransfer" text="Make Transfer">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Button>
+      <Button fx:id="logOutButton" layoutX="269.0" layoutY="302.0" mnemonicParsing="false" onAction="#logOut" text="Log Out">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

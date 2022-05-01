@@ -55,7 +55,7 @@ public class Screen12Controller implements Initializable {
         String accountTransfer = "call account_transfer('%s', %d, '%s', '%s', '%s', '%s', '%s');";
 
         Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String strDate = dateFormat.format(date);
 
         String bankAccountQuery = "select perID, bankID, accountID from access;";
