@@ -16,10 +16,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.time.LocalDate;
 
 
 public class Screen8Controller extends Screen19Login implements Initializable{
@@ -57,8 +57,8 @@ public class Screen8Controller extends Screen19Login implements Initializable{
     }
 
     @FXML
-    private ComboBox AccountID;
-    public ComboBox getAccountID() {
+    private TextField AccountID;
+    public TextField getAccountID() {
         return AccountID;
     }
 
@@ -119,10 +119,16 @@ public class Screen8Controller extends Screen19Login implements Initializable{
         System.out.println(ban);
 
     }
-    public void AcountID(ActionEvent actionEvent) {
-        acctID = String.valueOf(AccountID.getValue());
-        System.out.println(acctID);
-
+    public void AccountID(ActionEvent actionEvent) {
+        try {
+            String acctID = AccountID.getText();
+            System.out.println(acctID);
+        } catch (RuntimeException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter valid Account ID");
+            alert.show();
+        }
+        //acctID = String.valueOf(AccountID.getValue());
+        //System.out.println(acctID);
     }
 
     public void accountType(ActionEvent actionEvent) {
@@ -247,6 +253,14 @@ public class Screen8Controller extends Screen19Login implements Initializable{
 
         }
 
+        try {
+            acctID = AccountID.getText();
+            System.out.println(acctID);
+        } catch (RuntimeException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter valid Account ID");
+            alert.show();
+        }
+
         if (ccustomer == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose a customer");
             alert.show();
@@ -319,6 +333,10 @@ public class Screen8Controller extends Screen19Login implements Initializable{
 
                 ResultSet queryOutput = statement1.executeQuery(query);
 
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                        "add/remove successfully.");
+                alert.show();
+/**
                 root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
                 previous = 8;
                 System.out.println("after:" +previous);
@@ -326,6 +344,7 @@ public class Screen8Controller extends Screen19Login implements Initializable{
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+ **/
             }catch (NullPointerException npe) {
                     Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose a accessible account");
                     alert.show();
@@ -400,7 +419,7 @@ public class Screen8Controller extends Screen19Login implements Initializable{
             accessibleAccounts.getItems().addAll(existingAccount);
             customer.getItems().addAll(customerList);
             bank.getItems().addAll(bankIDlist);
-            AccountID.getItems().addAll(accountIDList);
+            //AccountID.getItems().addAll(accountIDList);
 
 
         } catch (SQLException e) {

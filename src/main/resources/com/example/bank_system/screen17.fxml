@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="399.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen17Controller">
+   <children>
+      <TableView fx:id="tableView" layoutX="-1.0" layoutY="63.0" prefHeight="336.0" prefWidth="1024.0">
+        <columns>
+          <TableColumn fx:id="customerID" prefWidth="90.0" text="Customer ID" />
+          <TableColumn fx:id="tAXID" minWidth="8.0" prefWidth="95.0" text="TAX ID" />
+            <TableColumn fx:id="customerName" prefWidth="127.0" text="Customer Name" />
+            <TableColumn fx:id="dOB" prefWidth="84.0" text="Date of Birth" />
+            <TableColumn fx:id="joinedDate" prefWidth="79.0" text="Joined Date" />
+            <TableColumn fx:id="street" prefWidth="101.0" text="Street" />
+            <TableColumn fx:id="city" prefWidth="54.0" text="City" />
+            <TableColumn fx:id="state" prefWidth="49.0" text="State" />
+            <TableColumn fx:id="zip" prefWidth="39.0" text="Zip" />
+            <TableColumn fx:id="numberOfAccounts" prefWidth="172.0" text="Number of Accounts" />
+            <TableColumn fx:id="customerAssets" prefWidth="132.0" text="Customer Assets($)" />
+        </columns>
+      </TableView>
+      <Label layoutX="328.0" layoutY="22.0" text="Display customer stats">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="backBtn" layoutX="949.0" layoutY="22.0" mnemonicParsing="false" onAction="#backToViewStats" text="Back" />
+   </children>
+</AnchorPane>

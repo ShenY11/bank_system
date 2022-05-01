@@ -8,46 +8,55 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen8Controller">
    <children>
-      <Label layoutX="176.0" layoutY="49.0" text="Manage Account Access">
-         <font>
-            <Font name="Arial Bold" size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="25.0" layoutY="98.0" text="Existing Accounts: Add/Remove Owners">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="331.0" layoutY="98.0" text="CreateNewAccount(ADMIN ONLY)">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="accessibleAccounts" layoutX="25.0" layoutY="128.0" onAction="#accessibleAccounts" prefWidth="150.0" promptText="Accessible Account" />
-      <ComboBox fx:id="customer" layoutX="25.0" layoutY="168.0" onAction="#customer" prefWidth="150.0" promptText="Customer" />
-      <CheckBox fx:id="addowner" layoutX="25.0" layoutY="212.0" mnemonicParsing="false" onAction="#addowner" text="Adding Owner?">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </CheckBox>
-      <ComboBox fx:id="bank" layoutX="393.0" layoutY="128.0" onAction="#bank" prefWidth="150.0" promptText="Bank" />
-      <ComboBox fx:id="AccountID" layoutX="393.0" layoutY="168.0" onAction="#AcountID" prefWidth="150.0" promptText="Account ID" />
-      <ComboBox fx:id="accountType" layoutX="393.0" layoutY="208.0" onAction="#accountType" prefWidth="150.0" promptText="Account Type" />
-      <Button fx:id="back" layoutX="131.0" layoutY="343.0" mnemonicParsing="false" onAction="#back" text="Back">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="confirm" layoutX="409.0" layoutY="343.0" mnemonicParsing="false" onAction="#confirm" text="Confirm">
-         <font>
-            <Font name="Arial" size="14.0" />
-         </font>
-      </Button>
-      <TextField fx:id="balance" layoutX="131.0" layoutY="265.0" onAction="#balance" promptText="\$Initial balance" />
-      <TextField fx:id="minBalance" layoutX="131.0" layoutY="304.0" onAction="#minBalance" promptText="\$Min Balance" />
-      <TextField fx:id="rate" layoutX="318.0" layoutY="265.0" onAction="#rate" promptText="Interest Rate" />
-      <TextField fx:id="withdrawals" layoutX="318.0" layoutY="304.0" onAction="#withdrawals" promptText="Max Withdrawals" />
+      <AnchorPane fx:id="accountID" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="176.0" layoutY="49.0" text="Manage Account Access">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="98.0" text="Existing Accounts: Add/Remove Owners">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="331.0" layoutY="98.0" text="CreateNewAccount(ADMIN ONLY)">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="accessibleAccounts" layoutX="25.0" layoutY="128.0" onAction="#accessibleAccounts" prefWidth="150.0" promptText="Accessible Account" />
+            <ComboBox fx:id="customer" layoutX="25.0" layoutY="168.0" onAction="#customer" prefWidth="150.0" promptText="Customer" />
+            <CheckBox fx:id="addowner" layoutX="25.0" layoutY="212.0" mnemonicParsing="false" onAction="#addowner" text="Adding Owner?">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </CheckBox>
+            <ComboBox fx:id="bank" layoutX="393.0" layoutY="128.0" onAction="#bank" prefWidth="150.0" promptText="Bank" />
+            <ComboBox fx:id="accountType" layoutX="393.0" layoutY="208.0" onAction="#accountType" prefWidth="150.0" promptText="Account Type" />
+            <Button fx:id="back" layoutX="131.0" layoutY="343.0" mnemonicParsing="false" onAction="#back" text="Back">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="confirm" layoutX="409.0" layoutY="343.0" mnemonicParsing="false" onAction="#confirm" text="Confirm">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="balance" layoutX="131.0" layoutY="265.0" onAction="#balance" promptText="\$Initial balance" />
+            <TextField fx:id="minBalance" layoutX="131.0" layoutY="304.0" onAction="#minBalance" promptText="\$Min Balance" />
+            <TextField fx:id="rate" layoutX="318.0" layoutY="265.0" onAction="#rate" promptText="Interest Rate" />
+            <TextField fx:id="withdrawals" layoutX="318.0" layoutY="304.0" onAction="#withdrawals" promptText="Max Withdrawals" />
+            <TextField fx:id="AccountID" layoutX="391.0" layoutY="169.0" onAction="#AccountID" promptText="Account ID">
+               <font>
+                  <Font name="Arial" size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

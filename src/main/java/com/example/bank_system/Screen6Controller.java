@@ -133,6 +133,10 @@ public class Screen6Controller extends Screen19Login implements Initializable{
             System.out.println(query);
             ResultSet queryOutput = statement1.executeQuery(query);
 
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
+                    "Hire successfully.");
+            alert.show();
+/**
             root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
             previous = 6;
             System.out.println("after:" +previous);
@@ -140,6 +144,7 @@ public class Screen6Controller extends Screen19Login implements Initializable{
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+ **/
         }catch (NullPointerException npe) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose both a bank and a employee");
             alert.show();
