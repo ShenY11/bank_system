@@ -150,4 +150,16 @@ public class Screen20Controller extends Screen19Login{
             e.printStackTrace();
         }
     }
+
+    public void logOut(ActionEvent actionEvent) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("screen19.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

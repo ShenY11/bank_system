@@ -1,5 +1,6 @@
 package com.example.bank_system;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -70,6 +71,18 @@ public class Screen23Controller extends Screen19Login{
         stage.show();
 
 
+    }
+
+    public void logOut(ActionEvent actionEvent) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("screen19.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
