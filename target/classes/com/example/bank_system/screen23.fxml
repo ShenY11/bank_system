@@ -7,20 +7,24 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen23Controller">
    <children>
-      <Label layoutX="228.0" layoutY="39.0" text="Manager Menu">
+      <Label layoutX="216.0" layoutY="39.0" text="Manager Menu">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="Pay_Employee" layoutX="257.0" layoutY="117.0" mnemonicParsing="false" onAction="#PayEmployee" text="Pay Employee">
+      <Button fx:id="Pay_Employee" layoutX="245.0" layoutY="117.0" mnemonicParsing="false" onAction="#PayEmployee" text="Pay Employee">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="Hire_Worker" layoutX="265.0" layoutY="188.0" mnemonicParsing="false" onAction="#HireWorker" text="Hire Worker">
+      <Button fx:id="Hire_Worker" layoutX="253.0" layoutY="188.0" mnemonicParsing="false" onAction="#HireWorker" text="Hire Worker">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
+      <Button fx:id="logOutButton" layoutX="265.0" layoutY="287.0" mnemonicParsing="false" onAction="#logOut" text="Log Out">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

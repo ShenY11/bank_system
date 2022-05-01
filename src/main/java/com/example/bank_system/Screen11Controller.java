@@ -93,7 +93,7 @@ public class Screen11Controller  implements Initializable {
             ResultSet queryOutput = statement.executeQuery(query);
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                    "Transfer successfully.");
+                    "Deposit successfully.");
             alert.show();
 
         } catch (Exception e) {
@@ -128,7 +128,7 @@ public class Screen11Controller  implements Initializable {
             ResultSet queryOutput = statement.executeQuery(query);
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                    "Transfer successfully.");
+                    "Withdraw successfully.");
             alert.show();
 
         } catch (Exception e) {
