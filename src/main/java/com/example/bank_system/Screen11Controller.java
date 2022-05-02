@@ -92,12 +92,16 @@ public class Screen11Controller  implements Initializable {
             String query = String.format(accountDeposit, perID, amount, bankID, accountID, date);
             ResultSet queryOutput = statement.executeQuery(query);
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                    "Deposit successfully.");
-            alert.show();
-
+            root = FXMLLoader.load(getClass().getResource("screen24.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING,
+                    "Please enter valid inputs");
+            alert.show();
         }
     }
 
@@ -127,12 +131,16 @@ public class Screen11Controller  implements Initializable {
             String query = String.format(accountWithdrawal, perID, amount, bankID, accountID, date);
             ResultSet queryOutput = statement.executeQuery(query);
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                    "Withdraw successfully.");
-            alert.show();
-
+            root = FXMLLoader.load(getClass().getResource("screen24.fxml"));
+            stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING,
+                    "Please enter valid inputs");
+            alert.show();
         }
     }
 

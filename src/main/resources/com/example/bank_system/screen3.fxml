@@ -1,47 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen3Controller">
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen3Controller">
    <children>
       <Label layoutX="173.0" layoutY="61.0" text="Create Employee Role">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <ComboBox fx:id="selectUserCombo" layoutX="311.0" layoutY="126.0" prefWidth="150.0" promptText="select user" />
-      <Label layoutX="149.0" layoutY="174.0" text="Salary">
+      <ComboBox fx:id="selectUserCombo" layoutX="62.0" layoutY="128.0" prefWidth="150.0" promptText="select user" />
+      <Label layoutX="63.0" layoutY="220.0" text="Salary">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="salaryTextfield" layoutX="306.0" layoutY="169.0" />
-      <Label layoutX="149.0" layoutY="211.0" text="# of payments">
+      <TextField fx:id="salaryTextfield" layoutX="220.0" layoutY="215.0" prefHeight="26.0" prefWidth="121.0" />
+      <Label layoutX="63.0" layoutY="257.0" text="# of payments">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="numOfPaymentsTextfield" layoutX="306.0" layoutY="206.0" />
-      <Label layoutX="149.0" layoutY="253.0" text="Accumulated Earnings">
+      <TextField fx:id="numOfPaymentsTextfield" layoutX="220.0" layoutY="252.0" prefHeight="26.0" prefWidth="121.0" />
+      <Label layoutX="63.0" layoutY="299.0" text="Accumulated Earnings">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="accuEarningsTextfield" layoutX="306.0" layoutY="248.0" />
-      <Button fx:id="cancelButton" layoutX="210.0" layoutY="313.0" mnemonicParsing="false" onAction="#goToManageUsers_cancel" text="Cancel">
+      <TextField fx:id="accuEarningsTextfield" layoutX="220.0" layoutY="294.0" prefHeight="26.0" prefWidth="121.0" />
+      <Button fx:id="cancelButton" layoutX="103.0" layoutY="380.0" mnemonicParsing="false" onAction="#goToManageUsers_cancel" text="Cancel">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="createButton" layoutX="323.0" layoutY="313.0" mnemonicParsing="false" onAction="#goToManageUsers_create" text="Create">
+      <Button fx:id="createButton" layoutX="216.0" layoutY="380.0" mnemonicParsing="false" onAction="#goToManageUsers_create" text="Create">
          <font>
             <Font name="Arial" size="14.0" />
          </font>
       </Button>
+      <CheckBox fx:id="alreadyCheck" layoutX="62.0" layoutY="173.0" mnemonicParsing="false" text="Already in the system">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </CheckBox>
+      <TextField fx:id="perIDText" layoutX="442.0" layoutY="115.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="120.0" text="perID:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="369.0" layoutY="152.0" text="taxID:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="taxIDText" layoutX="442.0" layoutY="147.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="184.0" text="firstName:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fNameText" layoutX="442.0" layoutY="179.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="215.0" text="lastName:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="lNameText" layoutX="442.0" layoutY="210.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="247.0" text="birthDate:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="bDateText" layoutX="442.0" layoutY="242.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="278.0" text="street:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="streetText" layoutX="442.0" layoutY="273.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="310.0" text="city:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cityText" layoutX="442.0" layoutY="305.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="343.0" text="state:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="stateText" layoutX="442.0" layoutY="338.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="376.0" text="zip:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="zipText" layoutX="442.0" layoutY="371.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="409.0" text="dtJoined:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="dtJoinedText" layoutX="442.0" layoutY="404.0" prefHeight="26.0" prefWidth="98.0" />
+      <Label layoutX="369.0" layoutY="449.0" text="password:">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="passwordText" layoutX="442.0" layoutY="444.0" prefHeight="26.0" prefWidth="98.0" />
    </children>
 </AnchorPane>
