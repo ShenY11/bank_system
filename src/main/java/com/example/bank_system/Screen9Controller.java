@@ -141,11 +141,12 @@ public class Screen9Controller extends Screen19Login implements Initializable{
             String query = String.format(new_fee,bankID,accountName,feetext);
             System.out.println(query);
             ResultSet queryOutput = statement1.executeQuery(query);
-
+/**
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                     "create fee successfully.");
             alert.show();
-/**
+ **/
+
             root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
             previous = 9;
             System.out.println("after:" +previous);
@@ -153,7 +154,7 @@ public class Screen9Controller extends Screen19Login implements Initializable{
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
- **/
+
         }catch (NullPointerException npe) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose both a bank and a account");
             alert.show();

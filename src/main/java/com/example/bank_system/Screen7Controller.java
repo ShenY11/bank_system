@@ -58,7 +58,7 @@ public class Screen7Controller extends Screen19Login implements Initializable {
         return newsalary;
     }
 
-    private int salary;
+    private Integer salary;
     private String bankID;
     private String employeeName;
 
@@ -108,9 +108,9 @@ public class Screen7Controller extends Screen19Login implements Initializable {
             System.out.println(salary);
 
         } catch (RuntimeException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please set the salary for the employee");
-            alert.show();
-            return;
+            //Alert alert = new Alert(Alert.AlertType.WARNING, "Please set the salary for the employee");
+            //alert.show();
+            //return;
         }
 
         if (employeeName == null || bankID == null) {
@@ -133,10 +133,12 @@ public class Screen7Controller extends Screen19Login implements Initializable {
             String query = String.format(hire_worker, employeeName, bankID, salary);
             System.out.println(query);
             ResultSet queryOutput = statement1.executeQuery(query);
+            /**
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                     "replace successfully.");
             alert.show();
-/**
+             **/
+
             root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
             previous = 7;
             System.out.println("after:" +previous);
@@ -144,7 +146,7 @@ public class Screen7Controller extends Screen19Login implements Initializable {
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
- **/
+
         }catch (NullPointerException npe) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose both a bank and a employee");
             alert.show();

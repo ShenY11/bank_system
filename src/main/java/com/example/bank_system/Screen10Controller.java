@@ -126,11 +126,12 @@ public class Screen10Controller extends Screen19Login implements Initializable{
 
 
                 ResultSet queryOutput = statement1.executeQuery(query);
-
+/**
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                         "create new fee successfully.");
                 alert.show();
-/***
+ **/
+
                 root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
                 previous = 10;
                 System.out.println("after:" +previous);
@@ -138,7 +139,7 @@ public class Screen10Controller extends Screen19Login implements Initializable{
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
- ***/
+
             }catch (NullPointerException npe) {
                     Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose both a checking account and a saving account");
                     alert.show();

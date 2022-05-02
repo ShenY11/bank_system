@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_system.Screen13Controller">
    <children>
       <Label layoutX="213.0" layoutY="37.0" text="Pay employees">
@@ -13,7 +12,7 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="pay" layoutX="225.0" layoutY="214.0" mnemonicParsing="false" onAction="#pay" text="Pay all employees">
+      <Button fx:id="pay" layoutX="233.0" layoutY="160.0" mnemonicParsing="false" onAction="#pay" text="Pay all employees">
          <font>
             <Font name="Arial" size="14.0" />
          </font>

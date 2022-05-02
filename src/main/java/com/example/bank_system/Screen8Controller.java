@@ -91,10 +91,10 @@ public class Screen8Controller extends Screen19Login implements Initializable{
     private String acctID;
     private String accttype;
 
-    private int balan;
-    private int mbala;
-    private int rat;
-    private int withdraw;
+    private Integer balan = null;
+    private Integer mbala = null;
+    private Integer rat = null;
+    private Integer withdraw = null;
 
 
 
@@ -210,6 +210,8 @@ public class Screen8Controller extends Screen19Login implements Initializable{
     }
 
     public void confirm(ActionEvent actionEvent) {
+        //if (addowner.isSelected()) {
+        /**
         try {
             String salarytext = balance.getText();
             balan = Integer.parseInt(salarytext);
@@ -268,11 +270,16 @@ public class Screen8Controller extends Screen19Login implements Initializable{
         }
 
         if (accttype == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose a account type");
+            Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose an account type");
             alert.show();
             return;
         }
-
+***/
+        if (ccustomer == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose a customer");
+            alert.show();
+            return;
+        }
 
 
 
@@ -289,7 +296,73 @@ public class Screen8Controller extends Screen19Login implements Initializable{
                 Statement statement1 = connectionDB.createStatement();
 
 
+
+
                 if (addowner.isSelected()) {
+                    try {
+                        String salarytext = balance.getText();
+                        balan = Integer.parseInt(salarytext);
+                        System.out.println(balan);
+                    } catch (RuntimeException e) {
+                        //e.printStackTrace();
+                        //balan = null;
+                        //Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter valid initial balance");
+                        //alert.show();
+                        //return;
+
+                    }
+                    try {
+                        String salarytext = minBalance.getText();
+                        mbala = Integer.parseInt(salarytext);
+                        System.out.println(mbala);
+                    } catch (RuntimeException e) {
+                        //e.printStackTrace();
+                        //Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter valid minimum balance");
+                        //alert.show();
+                        //return;
+
+                    }
+
+                    try {
+                        String salarytext = rate.getText();
+                        rat = Integer.parseInt(salarytext);
+                        System.out.println(rat);
+                    } catch (RuntimeException e) {
+                        //e.printStackTrace();
+                        //Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter valid rate");
+                        //alert.show();
+                        //return;
+
+                    }
+
+                    try {
+                        String salarytext = withdrawals.getText();
+                        withdraw = Integer.parseInt(salarytext);
+                        System.out.println(withdraw);
+                    } catch (RuntimeException e) {
+                        //e.printStackTrace();
+                        //Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter valid withdrawls");
+                        //alert.show();
+                        //return;
+
+                    }
+
+
+
+                    try {
+                        acctID = AccountID.getText();
+                        System.out.println(acctID);
+                    } catch (RuntimeException e) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING, "Please enter valid Account ID");
+                        alert.show();
+                    }
+
+
+                    if (accttype == null) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose an account type");
+                        alert.show();
+                        return;
+                    }
                     System.out.println("add");
                     String bi;
                     String ai;
@@ -315,12 +388,16 @@ public class Screen8Controller extends Screen19Login implements Initializable{
                     }
                     LocalDate currentDay = LocalDate.now();
                     String date = DateTimeFormatter.ofPattern("yyyy-MM-dd").format(currentDay);
-                    add_account_access = "call add_account_access('%s', '%s', '%s','%s','%s',%d,%d,'%s',%d,%d,%d,'%s');";
+                    add_account_access = "call add_account_access('%s', '%s', '%s','%s','%s',%d,%d,%d,%d,%d,%d,'%s');";
 
-                    query = String.format(add_account_access, ID, ccustomer, accttype,bi,ai,balan,rat,date,mbala,null,withdraw,date);
+                    query = String.format(add_account_access, ID, ccustomer, accttype,bi,ai,balan,rat,null,mbala,null,withdraw,date);
 
                     System.out.println(query);
                 } else {
+                    if(Accounts == null) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING, "Please choose from accessibleAccounts");
+                        alert.show();
+                    }
                     System.out.println("remove");
                     remove_account_access = "call remove_account_access('%s', '%s', '%s', '%s');";
                     int comma = Accounts.indexOf(',');
@@ -332,11 +409,12 @@ public class Screen8Controller extends Screen19Login implements Initializable{
 
 
                 ResultSet queryOutput = statement1.executeQuery(query);
-
+/**
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
                         "add/remove successfully.");
                 alert.show();
-/**
+ **/
+
                 root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
                 previous = 8;
                 System.out.println("after:" +previous);
@@ -344,7 +422,7 @@ public class Screen8Controller extends Screen19Login implements Initializable{
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
- **/
+
             }catch (NullPointerException npe) {
                     Alert alert = new Alert(Alert.AlertType.WARNING, "you must choose a accessible account");
                     alert.show();

@@ -30,6 +30,21 @@ public class Screen13Controller extends Screen19Login{
     public Button getPay() {
         return pay;
     }
+/**
+    @FXML
+    private Button back;
+
+    public Button getBack() {
+        return back;
+    }
+
+    @FXML
+    private Button confirm;
+
+    public Button getConfrim() {
+        return confirm;
+    }
+    **/
 
     private Stage stage;
     private Scene scene;
@@ -51,15 +66,14 @@ public class Screen13Controller extends Screen19Login{
             String query = String.format(pay_employees);
             System.out.println(query);
             ResultSet queryOutput = statement1.executeQuery(query);
-            previous = 23;
 
-            root = FXMLLoader.load(getClass().getResource("screen23.fxml"));
+            root = FXMLLoader.load(getClass().getResource("screen" + previous + ".fxml"));
+            previous = 13;
+            System.out.println("after:" + previous);
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,6 +82,30 @@ public class Screen13Controller extends Screen19Login{
 
         }
     }
+/**
+    public void back(ActionEvent actionEvent) throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("screen"+previous+".fxml"));
+        previous = 13;
+        System.out.println("after:" +previous);
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+ **/
+    /**
+    public void confirm(ActionEvent actionEvent) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("screen" + previous + ".fxml"));
+        previous = 13;
+        System.out.println("after:" + previous);
+        stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+     **/
 
 
 }
