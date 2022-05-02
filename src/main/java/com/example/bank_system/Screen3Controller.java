@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -52,6 +49,78 @@ public class Screen3Controller implements Initializable {
     }
 
     @FXML
+    private TextField perIDText;
+    public TextField getPerIDText() {
+        return perIDText;
+    }
+
+    @FXML
+    private TextField taxIDText;
+    public TextField getTaxIDText() {
+        return taxIDText;
+    }
+
+    @FXML
+    private TextField fNameText;
+    public TextField getfNameText() {
+        return fNameText;
+    }
+
+    @FXML
+    private TextField lNameText;
+    public TextField getlNameText() {
+        return lNameText;
+    }
+
+    @FXML
+    private TextField bDateText;
+    public TextField getbDateText() {
+        return bDateText;
+    }
+
+    @FXML
+    private TextField streetText;
+    public TextField getStreetText() {
+        return streetText;
+    }
+
+    @FXML
+    private TextField cityText;
+    public TextField getCityText() {
+        return cityText;
+    }
+
+    @FXML
+    private TextField stateText;
+    public TextField getStateText() {
+        return stateText;
+    }
+
+    @FXML
+    private TextField zipText;
+    public TextField getZipText() {
+        return zipText;
+    }
+
+    @FXML
+    private TextField dtJoinedText;
+    public TextField getDtJoinedText() {
+        return dtJoinedText;
+    }
+
+    @FXML
+    private TextField passwordText;
+    public TextField getPasswordText() {
+        return passwordText;
+    }
+
+    @FXML
+    private CheckBox alreadyCheck;
+    public CheckBox getAlreadyCheck() {
+        return alreadyCheck;
+    }
+
+    @FXML
     private Button cancelButton;
     public Button getCancelButton() {
         return cancelButton;
@@ -81,7 +150,7 @@ public class Screen3Controller implements Initializable {
         String createEmployee = "call start_employee_role('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s',%d,%d,%d,'%s');";
                                                     //perID, taxID, fN, lN, bDate, street, city, state, zip, dtJoined, salary, payments, earned,  emp_password
         try {
-            String perID = String.valueOf(selectUserCombo.getValue());
+            String perID = "";
             String taxID = "";
             String fN = "";
             String lN = "";
@@ -94,31 +163,57 @@ public class Screen3Controller implements Initializable {
             int salary = Integer.valueOf(salaryTextfield.getText());
             int payments = Integer.valueOf(numOfPaymentsTextfield.getText());
             int earned = Integer.valueOf(accuEarningsTextfield.getText());
-            //String emp_password = "";
+            if (salary == 0 || payments == 0 || earned == 0) {
+                Alert alert = new Alert(Alert.AlertType.WARNING,
+                        "Please enter valid inputs");
+                alert.show();
+            }
+            String password = "";
+            System.out.println(alreadyCheck.isSelected());
+            if (alreadyCheck.isSelected()) {
+                perID = String.valueOf(selectUserCombo.getValue());
+                String getInfo = "select * from bank_user where bank_user.perID = '%s';";
+                Statement statement1 = connectionDB.createStatement();
+                ResultSet queryOutput1 = statement1.executeQuery(String.format(getInfo, perID));
+                queryOutput1.next();
 
-            String getInfo = "select * from bank_user where bank_user.perID = '%s';";
-            Statement statement1 = connectionDB.createStatement();
-            ResultSet queryOutput1 = statement1.executeQuery(String.format(getInfo, perID));
-            queryOutput1.next();
-            taxID = queryOutput1.getString("taxID");
-            fN = queryOutput1.getString("firstName");
-            lN = queryOutput1.getString("lastName");
-            bDate = queryOutput1.getString("birthdate");
-            street = queryOutput1.getString("street");
-            city = queryOutput1.getString("city");
-            state = queryOutput1.getString("state");
-            zip = queryOutput1.getString("zip");
-            dtJoined = queryOutput1.getString("dtJoined");
-            String getInfo2 = "select pwd from person where person.perID = perID;";
-            Statement statement2 = connectionDB.createStatement();
-            ResultSet queryOutput2 = statement2.executeQuery(getInfo2);
-            queryOutput2.next();
-            String emp_password = queryOutput2.getString("pwd");
+                taxID = queryOutput1.getString("taxID");
+                fN = queryOutput1.getString("firstName");
+                lN = queryOutput1.getString("lastName");
+                bDate = queryOutput1.getString("birthdate");
+                street = queryOutput1.getString("street");
+                city = queryOutput1.getString("city");
+                state = queryOutput1.getString("state");
+                zip = queryOutput1.getString("zip");
+                dtJoined = queryOutput1.getString("dtJoined");
+                String getInfo2 = "select pwd from person where person.perID = perID;";
+                Statement statement2 = connectionDB.createStatement();
+                ResultSet queryOutput2 = statement2.executeQuery(getInfo2);
+                queryOutput2.next();
+                password = queryOutput2.getString("pwd");
 
-            String query = String.format(createEmployee, perID, taxID, fN, lN, bDate, street, city, state, zip,
-                    dtJoined, salary,payments,earned,emp_password);
-            Statement statement3 = connectionDB.createStatement();
-            ResultSet queryOutput3 = statement3.executeQuery(query);
+                String query = String.format(createEmployee, perID, taxID, fN, lN, bDate, street, city, state, zip,
+                        dtJoined, salary,payments,earned,password);
+                Statement statement3 = connectionDB.createStatement();
+                ResultSet queryOutput3 = statement3.executeQuery(query);
+            } else {
+                perID = perIDText.getText();
+                taxID = taxIDText.getText();
+                fN = fNameText.getText();
+                lN = lNameText.getText();
+                bDate = bDateText.getText();
+                street = streetText.getText();
+                city = cityText.getText();
+                state = stateText.getText();
+                zip = zipText.getText();
+                dtJoined = dtJoinedText.getText();
+                password = passwordText.getText();
+
+                String query = String.format(createEmployee, perID, taxID, fN, lN, bDate, street, city, state, zip,
+                        dtJoined, salary,payments,earned,password);
+                Statement statement3 = connectionDB.createStatement();
+                ResultSet queryOutput3 = statement3.executeQuery(query);
+            }
 
             root = FXMLLoader.load(getClass().getResource("screen21.fxml"));
             stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
